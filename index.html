@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raven Systems Inc. | AI Deployment</title>
+<meta name="description" content="AI deployment for teams. Setup for Claude Code, Grok, Muse and more. Custom skills. Ongoing support.">
+<meta property="og:title" content="Raven Systems Inc.">
+<meta property="og:description" content="AI deployment for teams. Setup for Claude Code, Grok, Muse and more. Custom skills. Ongoing support.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ravenai.ca">
+<link rel="canonical" href="https://ravenai.ca">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Raven Systems Inc.">
+<meta name="twitter:description" content="AI deployment for teams. Setup for Claude Code, Grok, Muse and more. Custom skills. Ongoing support.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Raven Systems Inc.","url":"https://ravenai.ca","email":"dustin@ravenai.ca","description":"AI deployment for teams.","address":{"@type":"PostalAddress","addressRegion":"Saskatchewan","addressCountry":"CA"}}</script> <!-- commit-leak-scan: allow (public contact email, captain-approved sole link 2026-11-13) -->
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --border: #2a2a2a;
+  --text: #e0e0e0;
+  --text-muted: #808080;
+  --accent: #c43a3a;
+  --accent-hover: #d44e4e;
+  --white: #ffffff;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 64px;
+  --max-width: 960px;
+  --border-radius: 4px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+svg { display: block; }
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-sm);
+  background: var(--accent);
+  color: var(--white);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  z-index: 100;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+}
+.skip-link:focus { top: var(--space-xs); }
+a:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+a:focus:not(:focus-visible) { outline: none; }
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+.header { padding: var(--space-lg) 0 var(--space-md); }
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.header__logo { width: 36px; height: 36px; flex-shrink: 0; }
+.header__logo--left { transform: scaleX(-1); }
+.header__logo--right { }
+.header__wordmark {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+.header__sub {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin: 0;
+}
+.tagline {
+  text-align: center;
+  padding: var(--space-md) 0 var(--space-lg);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.tagline p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0 0 var(--space-xs);
+}
+.tagline p:last-child { margin-bottom: 0; }
+.tagline a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--text-muted);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.tagline a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: var(--accent-hover);
+}
+.tagline a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.founder {
+  max-width: 720px;
+  margin: 0 auto var(--space-lg);
+  padding: var(--space-md) var(--space-sm);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.founder__heading {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0 0 var(--space-sm);
+}
+.founder p {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 var(--space-sm);
+}
+.founder p:last-of-type { margin-bottom: 0; }
+.founder__byline {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: var(--space-sm);
+}
+.founder__byline a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--text-muted);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.founder__byline a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: var(--accent-hover);
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.panel {
+  background: var(--surface);
+  border-radius: var(--border-radius);
+  padding: var(--space-md) var(--space-sm);
+}
+.panel__heading {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0 0 var(--space-xs);
+}
+.panel__desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.5;
+}
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.link-item a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--space-xs);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.link-item a::before {
+  content: '>';
+  color: var(--accent);
+  margin-right: var(--space-xs);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+.link-item a:hover {
+  color: var(--white);
+  background-color: rgba(196, 58, 58, 0.12);
+}
+.link-item a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.link-item a:active { color: var(--accent); }
+.tools {
+  text-align: center;
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.tools__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.tools__list a {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  text-decoration: none;
+  padding: var(--space-xs);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s ease;
+}
+.tools__list a:hover { color: var(--accent); }
+.tools__list a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.tools__list li + li::before {
+  content: '|';
+  color: var(--border);
+  pointer-events: none;
+}
+.footer {
+  padding: var(--space-md) 0 var(--space-lg);
+  text-align: center;
+}
+.footer__content {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.footer__pipe {
+  display: none;
+  color: var(--text-muted);
+}
+.footer a {
+  color: var(--text-muted);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s ease;
+}
+.footer a:hover { color: var(--accent); }
+.footer a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+@media (min-width: 768px) {
+  .header__logo { width: 48px; height: 48px; }
+  .header__wordmark { font-size: 1.125rem; }
+  .header__sub { font-size: 0.9375rem; }
+  .tagline p { font-size: 1.25rem; }
+  .split { grid-template-columns: 1fr 1fr; gap: 0; }
+  .panel {
+    background: transparent;
+    border-radius: 0;
+    padding: var(--space-xl) var(--space-lg);
+  }
+  .panel--researchers { border-right: 1px solid var(--border); }
+  .panel__heading { font-size: 0.8125rem; color: var(--accent); }
+  .panel__desc { font-size: 0.9375rem; }
+  .link-item a { font-size: 0.9375rem; }
+  .footer__content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0;
+  }
+  .footer__pipe {
+    display: inline;
+    margin: 0 var(--space-xs);
+  }
+  .footer a { min-height: auto; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="header">
+<div class="container">
+<div class="header__inner">
+<svg class="header__logo header__logo--left" role="img" aria-labelledby="raven-logo-title" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><title id="raven-logo-title">Raven Systems logo</title><path d="M23.6 5.9 L20.2 7.6 L17.7 9.3 L16.0 10.9 L6.7 12.6 L2.5 14.3 L0.8 16.0 L0.0 17.7 L18.5 19.4 L15.2 21.1 L10.9 22.7 L7.6 24.4 L5.1 26.1 L21.9 27.8 L22.7 29.5 L22.7 31.2 L22.7 32.8 L22.7 34.5 L22.7 36.2 L22.7 37.9 L24.4 39.6 L29.5 41.3 L35.4 41.3 L35.4 39.6 L36.2 37.9 L37.9 36.2 L39.6 34.5 L42.9 32.8 L45.5 31.2 L46.3 29.5 L47.2 27.8 L48.0 26.1 L48.0 24.4 L47.2 22.7 L46.3 21.1 L45.5 19.4 L46.3 17.7 L45.5 16.0 L43.8 14.3 L40.4 12.6 L41.3 10.9 L32.0 9.3 L29.5 7.6 L26.1 5.9 Z" fill="#fff"/></svg>
+<h1 class="header__wordmark">RAVEN SYSTEMS</h1>
+<svg class="header__logo header__logo--right" role="img" aria-hidden="true" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M23.6 5.9 L20.2 7.6 L17.7 9.3 L16.0 10.9 L6.7 12.6 L2.5 14.3 L0.8 16.0 L0.0 17.7 L18.5 19.4 L15.2 21.1 L10.9 22.7 L7.6 24.4 L5.1 26.1 L21.9 27.8 L22.7 29.5 L22.7 31.2 L22.7 32.8 L22.7 34.5 L22.7 36.2 L22.7 37.9 L24.4 39.6 L29.5 41.3 L35.4 41.3 L35.4 39.6 L36.2 37.9 L37.9 36.2 L39.6 34.5 L42.9 32.8 L45.5 31.2 L46.3 29.5 L47.2 27.8 L48.0 26.1 L48.0 24.4 L47.2 22.7 L46.3 21.1 L45.5 19.4 L46.3 17.7 L45.5 16.0 L43.8 14.3 L40.4 12.6 L41.3 10.9 L32.0 9.3 L29.5 7.6 L26.1 5.9 Z" fill="#fff"/></svg>
+</div>
+<p class="header__sub">Deployment. Skills. Support.</p>
+</div>
+</header>
+<main id="main">
+<section class="tagline container" aria-label="About">
+<p>AI deployment for teams.</p>
+<p>Setup for Claude Code, Grok, Muse and more. Custom skills. Ongoing support.</p>
+<p><a href="mailto:dustin@ravenai.ca">dustin@ravenai.ca</a></p> <!-- commit-leak-scan: allow (public contact email, captain-approved sole link 2026-11-13) -->
+</section>
+</main>
+<footer class="footer">
+<div class="container">
+<p class="footer__content">
+<span>Raven Systems Inc.</span>
+<span class="footer__pipe" aria-hidden="true">|</span>
+<span>Saskatchewan, Canada</span>
+<span class="footer__pipe" aria-hidden="true">|</span>
+<a href="mailto:dustin@ravenai.ca">dustin@ravenai.ca</a> <!-- commit-leak-scan: allow (public contact email, captain-approved sole link 2026-11-13) -->
+</p>
+</div>
+</footer>
+</body>
+</html>
